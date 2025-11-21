@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NMR PeakFinder - 核磁共振峰值查询工具</title>
+    <title>NMR PeakFinder - 核磁位移查询工具</title>
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon"/>
     <link rel="bookmark" href="favicon.ico" type="image/x-icon"/>
     
@@ -139,7 +139,7 @@
             if ($('#helpModal').length) {
                 $('#helpModal').modal('show');
             } else {
-                alert('帮助文档：\n\nNMR PeakFinder 是一个用于查询常见实验室溶剂核磁共振化学位移的工具。\n\n使用方法：\n1. 选择核磁共振类型（¹H-NMR 或 ¹³C-NMR）\n2. 选择溶剂类型\n3. 输入化学位移值和阈值范围\n4. 点击查询按钮查看结果\n\n您也可以直接在搜索框中输入化合物名称进行快速查找。');
+                alert('帮助文档：\n\nNMR PeakFinder 是一个用于查询核磁化学位移的工具。\n\n使用方法：\n1. 选择核磁图谱类型（¹H-NMR 或 ¹³C-NMR）\n2. 选择溶剂类型\n3. 输入化学位移值和阈值范围\n4. 点击查询按钮查看结果\n\n您也可以直接在搜索框中输入化合物名称进行快速查找。');
             }
         }
 
@@ -2432,8 +2432,8 @@
             <div class="container">
                 <!-- 英雄区域组件 -->
                 <section class="hero-section">
-                    <h1 class="page-title">核磁共振峰值查询工具</h1>
-                    <p class="page-description">快速查询常见实验室溶剂的核磁共振化学位移</p>
+                    <h1 class="page-title">核磁峰值查询工具</h1>
+                    <p class="page-description">快速查询常见核磁化学位移</p>
                 </section>
 
                 <!-- 查询表单组件 -->
@@ -2450,7 +2450,7 @@
                                 <div class="form-field">
                                     <label class="field-label" for="spec_type">
                                         <i class="fas fa-sync-alt field-icon"></i>
-                                        核磁共振类型
+                                        核磁图谱类型
                                     </label>
                                     <div class="field-input">
                                         <select id="spec_type" name="spec_type" required="required" class="select-input">
@@ -2631,7 +2631,7 @@
                     <div class="footer-text">
                         <p class="copyright">© 2025 - WangQixuan, All Rights Reserved</p>
                         <p class="footer-description">
-                            <i class="fas fa-microscope"></i> NMR PeakFinder - 核磁共振溶剂位移查询工具
+                            <i class="fas fa-microscope"></i> NMR PeakFinder - 核磁位移查询工具
                         </p>
                     </div>
                 </div>
@@ -2666,7 +2666,7 @@
                         </div>
                         <div class="section-content">
                             <h6 class="section-title">关于 NMR PeakFinder</h6>
-                            <p class="section-description">NMR PeakFinder 是一个核磁共振化学位移查询工具，帮助研究人员快速识别常见实验室溶剂中的 NMR 峰值。</p>
+                            <p class="section-description">NMR PeakFinder 是一个核磁化学位移查询工具，帮助研究人员快速识别常见NMR 峰值。</p>
                         </div>
                     </div>
                     
@@ -2681,7 +2681,7 @@
                             <h6 class="section-title">查询方法</h6>
                             <p class="section-description">要查找特定范围内的峰值（如 50.00±0.10 ppm），请按照以下步骤操作：</p>
                             <ol class="section-list">
-                                <li>选择核磁共振类型（¹H-NMR 或 ¹³C-NMR）</li>
+                                <li>选择核图谱类型（¹H-NMR 或 ¹³C-NMR）</li>
                                 <li>选择适当的溶剂类型</li>
                                 <li>将「化学位移」设置为 50.00</li>
                                 <li>将「阈值」设置为 0.10</li>
