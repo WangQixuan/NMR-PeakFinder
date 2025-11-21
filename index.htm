@@ -601,7 +601,7 @@
         .help-section {
             display: flex;
             gap: 1.5rem;
-            align-items: flex-start;
+            align-items: center;
             padding: 1.5rem;
             background-color: var(--bg-card);
             border-radius: var(--radius-lg);
@@ -611,6 +611,8 @@
             opacity: 0;
             transform: translateY(20px);
             animation: sectionSlideIn 0.5s ease-out forwards;
+            flex-wrap: nowrap;
+            flex-direction: row; /* 明确指定为水平方向 */
         }
         
         /* 区块依次滑入动画 */
@@ -654,6 +656,7 @@
         
         .section-icon-container {
             flex-shrink: 0;
+            min-width: 50px; /* 确保图标容器不会被压缩 */
         }
         
         .section-icon {
@@ -692,14 +695,18 @@
         
         .section-content {
             flex: 1;
+            min-width: 0; /* 允许内容区域缩小，防止溢出 */
         }
-        
+
         .section-title {
             margin: 0 0 1rem 0;
             font-size: 1.2rem;
             font-weight: 600;
-            color: var(--text-primary);
+            /* color: var(--text-primary); */
             transition: color 0.3s ease, transform 0.3s ease;
+            white-space: nowrap; /* 标题保持在一行 */
+            overflow: hidden;
+            text-overflow: ellipsis; /* 当标题过长时显示省略号 */
         }
         
         .help-section:hover .section-title {
@@ -795,15 +802,14 @@
             }
             
             .help-section {
-                flex-direction: column;
-                text-align: center;
+                flex-direction: row; /* 保持左右结构 */
                 padding: 1.25rem;
                 gap: 1rem;
             }
             
             .section-icon-container {
-                display: flex;
-                justify-content: center;
+                flex-shrink: 0;
+                min-width: 45px; /* 适配小屏幕图标大小 */
             }
             
             .section-icon {
@@ -1370,7 +1376,7 @@
         .section-title {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--text-inverse);
+            /* color: var(--text-inverse); */
             margin: 0;
             display: flex;
             align-items: center;
@@ -1578,11 +1584,13 @@
         /* 参考信息区域 */
         .reference-section {
             margin-top: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
             background-color: var(--bg-card);
             border-radius: var(--radius-xl);
             box-shadow: var(--shadow-lg);
             border: 1px solid var(--border-color);
             overflow: hidden;
+            transition: var(--transition);
         }
         
         .reference-list {
@@ -1705,14 +1713,7 @@
             transform: translateY(-2px);
         }
         
-        .reference-section {
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-lg);
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            transition: var(--transition);
-            margin-bottom: var(--spacing-xl);
-        }
+        /* 已合并到前面的.reference-section定义 */
         
         .reference-section:hover {
             box-shadow: var(--shadow-xl);
@@ -1720,7 +1721,7 @@
         
         .reference-section .card-content {
             background-color: var(--bg-card);
-            padding: var(--spacing-sm);
+            padding: 1.25rem;
             border: none;
             min-height: auto;
         }
@@ -1745,6 +1746,24 @@
             display: inline-flex;
             align-items: center;
             gap: 0.25rem;
+        }
+        
+        /* 确保参考文献位置一致和换行 */
+        .reference-entry:nth-child(2) {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-md);
+            padding: var(--spacing-md) 0;
+        }
+
+        .reference-entry:nth-child(2) .entry-content {
+            flex: 1;
+        }
+
+        .reference-entry:nth-child(2) .entry-link {
+            display: inline-block;
+            white-space: normal;
+            max-width: 100%;
         }
         
         .reference-section a::after {
@@ -1860,9 +1879,7 @@
                 white-space: nowrap;
             }
             
-            .reference-section .card-content {
-                padding: 1.25rem;
-            }
+            /* 已合并到前面的.reference-section .card-content定义 */
             
             .reference-section {
                 border-radius: var(--radius-lg);
@@ -2416,7 +2433,7 @@
                 <!-- 英雄区域组件 -->
                 <section class="hero-section">
                     <h1 class="page-title">核磁共振峰值查询工具</h1>
-                    <p class="page-description">专业、快速、准确地查询常见实验室溶剂的核磁共振化学位移</p>
+                    <p class="page-description">快速查询常见实验室溶剂的核磁共振化学位移</p>
                 </section>
 
                 <!-- 查询表单组件 -->
@@ -2612,9 +2629,9 @@
             <div class="container">
                 <div class="footer-wrapper">
                     <div class="footer-text">
-                        <p class="copyright">© 2021 - WangQixuan, All Rights Reserved</p>
+                        <p class="copyright">© 2025 - WangQixuan, All Rights Reserved</p>
                         <p class="footer-description">
-                            <i class="fas fa-microscope"></i> NMR PeakFinder - 专业的核磁共振溶剂位移查询工具
+                            <i class="fas fa-microscope"></i> NMR PeakFinder - 核磁共振溶剂位移查询工具
                         </p>
                     </div>
                 </div>
@@ -2649,7 +2666,7 @@
                         </div>
                         <div class="section-content">
                             <h6 class="section-title">关于 NMR PeakFinder</h6>
-                            <p class="section-description">NMR PeakFinder 是一个专业的核磁共振化学位移查询工具，帮助研究人员快速识别常见实验室溶剂中的 NMR 峰值。</p>
+                            <p class="section-description">NMR PeakFinder 是一个核磁共振化学位移查询工具，帮助研究人员快速识别常见实验室溶剂中的 NMR 峰值。</p>
                         </div>
                     </div>
                     
